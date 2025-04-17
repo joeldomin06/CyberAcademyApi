@@ -2,12 +2,9 @@ import { Student } from '../../../routes/students/entities/student.entity';
 import { Component } from '../../../routes/components/entities/component.entity';
 import {
   Column,
-  Entity,
-  ManyToOne,
-  OneToMany,
+  Entity, OneToMany,
   OneToOne,
-  PrimaryGeneratedColumn,
-  RelationId,
+  PrimaryGeneratedColumn
 } from 'typeorm';
 
 @Entity()

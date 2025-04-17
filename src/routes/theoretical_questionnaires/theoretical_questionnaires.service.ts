@@ -4,7 +4,6 @@ import { UpdateTheoreticalQuestionnaireDto } from './dto/update-theoretical_ques
 import { InjectRepository } from '@nestjs/typeorm';
 import { TheoreticalQuestionnaire } from './entities/theoretical_questionnaire.entity';
 import { Repository } from 'typeorm';
-import { StudentsService } from '../students/students.service';
 import { Student } from '../students/entities/student.entity';
 
 @Injectable()

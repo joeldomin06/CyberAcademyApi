@@ -5,7 +5,6 @@ import { InjectRepository } from '@nestjs/typeorm';
 import { Component } from './entities/component.entity';
 import { Repository } from 'typeorm';
 import { ComponentsType } from '../components_types/entities/components_type.entity';
-import { PersonalizationsService } from '../personalizations/personalizations.service';
 import { Personalization } from '../personalizations/entities/personalization.entity';
 
 @Injectable()

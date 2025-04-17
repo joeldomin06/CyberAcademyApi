@@ -2,11 +2,9 @@ import {
   Controller,
   Get,
   Post,
-  Body,
-  Patch,
-  Param,
+  Body, Param,
   Delete,
-  HttpCode,
+  HttpCode
 } from '@nestjs/common';
 import { StudentsService } from './students.service';
 import { RegisterStudentDto } from './dto/register-student.dto';

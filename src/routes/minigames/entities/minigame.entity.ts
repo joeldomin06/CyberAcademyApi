@@ -1,11 +1,8 @@
 import { Student } from '../../../routes/students/entities/student.entity';
 import {
   Column,
-  Entity,
-  ManyToOne,
-  OneToOne,
-  PrimaryGeneratedColumn,
-  RelationId,
+  Entity, OneToOne,
+  PrimaryGeneratedColumn
 } from 'typeorm';
 @Entity()
 export class Minigame {

@@ -4,7 +4,6 @@ import { UpdateArchivementDto } from './dto/update-archivement.dto';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Archivement } from './entities/archivement.entity';
 import { FindManyOptions, FindOneOptions, Repository } from 'typeorm';
-import { ArchivementsTypeService } from '../archivements_type/archivements_type.service';
 import { Student } from '../students/entities/student.entity';
 import { ArchivementsType } from '../archivements_type/entities/archivements_type.entity';
 

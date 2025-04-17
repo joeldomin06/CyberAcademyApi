@@ -1,4 +1,4 @@
-import { IsNotEmpty, IsNumber, MinLength } from 'class-validator';
+import { IsNotEmpty } from 'class-validator';
 
 export class RegisterStudentDto {
   @IsNotEmpty({ message: 'El Nickname es Obligatorio' })

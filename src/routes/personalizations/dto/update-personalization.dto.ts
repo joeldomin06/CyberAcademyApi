@@ -1,5 +1,4 @@
 import { PartialType } from '@nestjs/mapped-types';
-import { CreatePersonalizationDto } from './create-personalization.dto';
 import { IsNumber } from 'class-validator';
 
 class PersonalizationParameters {

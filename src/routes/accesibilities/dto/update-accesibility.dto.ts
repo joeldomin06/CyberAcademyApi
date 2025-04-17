@@ -1,5 +1,5 @@
 import { PartialType } from "@nestjs/mapped-types";
-import { IsBoolean, IsBooleanString, IsNotEmpty, IsNumber } from "class-validator";
+import { IsBoolean, IsNotEmpty, IsNumber } from "class-validator";
 import { CreateAccesibilityDto } from "./create-accesibility.dto";
 
 export class UpdateAccesibilityDto extends PartialType(CreateAccesibilityDto){
