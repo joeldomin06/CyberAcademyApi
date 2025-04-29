@@ -5,7 +5,7 @@ import { Minigame } from '../../../routes/minigames/entities/minigame.entity';
 import { Personalization } from '../../../routes/personalizations/entities/personalization.entity';
 import { LaboratoriesCarriedOut } from '../../../routes/laboratories_carried_out/entities/laboratories_carried_out.entity';
 import { TheoreticalQuestionnaire } from '../../../routes/theoretical_questionnaires/entities/theoretical_questionnaire.entity';
-import { Instance } from 'src/routes/instances/entities/instance.entity';
+import { Instance } from '../../../routes/instances/entities/instance.entity';
 
 @Entity()
 export class Student {

@@ -1,4 +1,4 @@
-import { Student } from "src/routes/students/entities/student.entity";
+import { Student } from "../../../routes/students/entities/student.entity";
 import { Column, Entity, ManyToOne, PrimaryGeneratedColumn } from "typeorm";
 
 @Entity()

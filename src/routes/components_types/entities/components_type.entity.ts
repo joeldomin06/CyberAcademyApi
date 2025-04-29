@@ -7,12 +7,12 @@ export class ComponentsType {
   id: number;
   @Column({
     type: 'varchar',
-    length: 20,
+    length: 60,
   })
   name: string;
   @Column({
     type: 'varchar',
-    length: 20,
+    length: 60,
   })
   category: string;
   @Column({ type: 'int' })
