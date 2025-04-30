@@ -38,8 +38,12 @@ export class PersonalizationsService {
     const personalizationSaved = await this.personalizationRepository.save(personalization);
 
     const components = this.componentService.createMany(components_types);
+    const unlockeds = [0, 5, 10, 15, 20, 25, 28, 32, 36];
+    let i = 0;
     for (const component of components) {
+      if(i == unlockeds[i]) component.isUnlocked = true;
       component.personalization = personalizationSaved;
+      i++;
     }
     await this.componentRepository.save(components); // guardamos todos los componentes
 
