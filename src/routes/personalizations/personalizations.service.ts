@@ -45,9 +45,9 @@ export class PersonalizationsService {
       component.personalization = personalizationSaved;
       i++;
     }
-    await this.componentRepository.save(components); // guardamos todos los componentes
+    const savedComponents = await this.componentRepository.save(components); // guardamos todos los componentes
 
-    personalizationSaved.components = components;
+    personalizationSaved.components = savedComponents;
 
     return await this.personalizationRepository.save(personalizationSaved);
   }
@@ -57,7 +57,10 @@ export class PersonalizationsService {
   }
 
   async findOne(id: number) {
-    return await this.personalizationRepository.findOneBy({id});
+    return await this.personalizationRepository.findOne({
+      where: {id},
+      relations: ["components"]
+    });
   }
 
   async update(id: number, updatePersonalizationDto: UpdatePersonalizationDto) {
