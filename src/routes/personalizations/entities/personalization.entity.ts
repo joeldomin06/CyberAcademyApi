@@ -39,6 +39,6 @@ export class Personalization {
   currentBanner: number;
   @Column({ type: 'int', default: 0 })
   currentWalpaper: number;
-  @OneToMany(() => Component, (c) => c.personalization, {cascade:true})
+  @OneToMany(() => Component, (c) => c.personalization, {cascade:true,eager:true})
   components: Component[];
 }

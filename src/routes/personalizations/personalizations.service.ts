@@ -23,34 +23,34 @@ export class PersonalizationsService {
     private readonly componentRepository: Repository<Component>,
 
   ){}
+
   async create(createPersonalizationDto: CreatePersonalizationDto) {
-    const {studentId} = createPersonalizationDto
-    const student = await this.studentRepository.findOneBy({id:studentId})
-    if(!student)
-    {
-      let errors: string[] = []
-      errors.push("Estudiante no encontrado")
-      throw new NotFoundException(errors)
-    }
-    const components_types = await this.componentTypeRepository.find()
+  const { studentId } = createPersonalizationDto;
 
-    const personalization = this.personalizationRepository.create({ student });
-    const personalizationSaved = await this.personalizationRepository.save(personalization);
-
-    const components = this.componentService.createMany(components_types);
-    const unlockeds = [0, 5, 10, 15, 20, 25, 28, 32, 36];
-    let i = 0;
-    for (const component of components) {
-      if(i == unlockeds[i]) component.isUnlocked = true;
-      component.personalization = personalizationSaved;
-      i++;
-    }
-    const savedComponents = await this.componentRepository.save(components); // guardamos todos los componentes
-
-    personalizationSaved.components = savedComponents;
-
-    return await this.personalizationRepository.save(personalizationSaved);
+  const student = await this.studentRepository.findOneBy({ id: studentId });
+  if (!student) {
+    throw new NotFoundException(['Estudiante no encontrado']);
   }
+
+  // Creamos la Personalization vacía primero
+  const personalization = this.personalizationRepository.create({ student });
+  const personalizationSaved = await this.personalizationRepository.save(personalization);
+
+  // Asegúrate de que createMany NO sea async o usa await
+  const components_types = await this.componentTypeRepository.find();
+  const components = this.componentService.createMany(components_types); // debe devolver Component[]
+
+  const unlockeds = [0, 5, 10, 15, 20, 25, 28, 32, 36];
+  for (let i = 0; i < components.length; i++) {
+    components[i].isUnlocked = unlockeds.includes(i);
+    components[i].personalization = personalizationSaved;
+  }
+
+  await this.componentRepository.save(components); // Guarda todos los componentes con relación
+
+  // Opcional: retornar personalization con componentes (ya guardados)
+  return personalizationSaved;
+}
 
   async findAll() {
     return `This action returns all personalizations`;
