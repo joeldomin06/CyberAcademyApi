@@ -40,7 +40,7 @@ export class PersonalizationsService {
   const components_types = await this.componentTypeRepository.find();
   const components = this.componentService.createMany(components_types); // debe devolver Component[]
 
-  const unlockeds = [0, 5, 10, 15, 20, 25, 28, 32, 36];
+  const unlockeds = [0,5,10,15,20,25,28,33,38];
   for (let i = 0; i < components.length; i++) {
     components[i].isUnlocked = unlockeds.includes(i);
     components[i].personalization = personalizationSaved;
