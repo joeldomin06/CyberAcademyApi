@@ -63,7 +63,7 @@ export class InstancesService {
       throw new NotFoundException('La instancia no ha sido encontrado');
     const student = instance.student;
     const newLevel = GetNewLevel(student.level,score)
-    student.level += Number(newLevel.toFixed(2))
+    student.level += Number(Number(newLevel).toFixed(2))
     const savedStudent = await this.studentRepository.save(student);
     Object.assign(instance,updateInstanceDto)
     await this.instanceRepository.save(instance)
