@@ -1,5 +1,5 @@
 import { Student } from "../../../routes/students/entities/student.entity";
-import { Column, Entity, ManyToOne, PrimaryGeneratedColumn } from "typeorm";
+import { Column, CreateDateColumn, Entity, ManyToOne, PrimaryGeneratedColumn } from "typeorm";
 
 @Entity()
 export class Instance {
@@ -31,4 +31,6 @@ export class Instance {
         type: "varchar"
     })
     time: string;
+    @CreateDateColumn({ type: 'timestamp' })
+    createdAt: Date;
 }

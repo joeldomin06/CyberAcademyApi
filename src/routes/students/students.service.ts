@@ -138,7 +138,8 @@ export class StudentsService {
     studentSaved.archivements = archivements;
     //guarda el usuario
     await this.studentRepository.save(studentSaved)
-    console.log(studentSaved)
+    //console.log(studentSaved)
+    console.log(`se ha creado el estudiante ${studentSaved.nickname} en el tiempo: ${Date.now()}`);
     return {
       statusCode: 201,
       message: "ok"

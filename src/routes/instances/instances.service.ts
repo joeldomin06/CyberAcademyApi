@@ -34,6 +34,7 @@ export class InstancesService {
     instance.typeLab = typeLab
     instance.subInstanceId = subinstance
     const savedInstance = await this.instanceRepository.save(instance)
+    console.log(`se creo la instancia para el alumno id: ${studentId} en ${Date.now()}`);
     return {
       id: savedInstance.id,
       subInstanceId: savedInstance.subInstanceId
@@ -68,6 +69,7 @@ export class InstancesService {
     Object.assign(instance,updateInstanceDto)
     await this.instanceRepository.save(instance)
     const feedback = GetFeedback(score)
+    console.log(`se creo modifico la instancia ${id} para el alumno id: ${student.id} en ${Date.now()}`);
     return {
       newLevel: savedStudent.level,
       feedback
